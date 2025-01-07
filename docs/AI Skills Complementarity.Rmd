@@ -1,0 +1,39 @@
+---
+title: "AI Skills Complementarity"
+output: html_document
+date: "2025-01-07"
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Data set up
+
+# Load libraries 
+library(tidyverse)
+library(DT) 
+
+# Load data
+table <- readxl::read_xlsx("List of Skills with Measures.xlsx") %>% 
+  mutate(`Betweenness Centrality` = round(`Betweenness Centrality`, 2)) %>% 
+  mutate(`Eigenvector Centrality` = round(`Eigenvector Centrality`, 2)) %>% 
+  mutate(Complementarity = round(Complementarity, 2))
+  
+```
+
+The table shows the skills demand in Italian AI-realted labour market. The results refer to the netwrok analysis performed on RStudio. The columns include:
+
+* Skill: the label of a given skills included in the job vacancies
+* Cluster: the number of the cluster which the skill belong to
+* Demand: the number of job vacancies mentioning the skill
+* Skill type: binary indicator for AI skill or ESCO skill
+* Centrality measures: Betweenness Centrality, Degree Centrality, Eigenvector Centrality
+* Complementarity: multiplication of Centrality measures
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Table Displays
+
+DT::datatable(table, filter = "top", rownames = F, class = "cell-border stripe",
+              extensions = 'Buttons', options = list(
+                dom = 'Bfrtip', 
+                buttons = c('copy', 'csv', 'excel', 'pdf', 'print'))
+              )
+```
