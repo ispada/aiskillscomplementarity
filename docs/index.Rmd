@@ -12,7 +12,7 @@ library(tidyverse)
 library(DT) 
 
 # Load data
-table <- readxl::read_xlsx("List of Skills with Measures.xlsx") %>% 
+table <- readxl::read_xlsx("C:/Users/irene/Documents/GitHub/aiskillscomplementarity/docs/List of Skills with Measures.xlsx") %>% 
   mutate(`Betweenness Centrality` = round(`Betweenness Centrality`, 2)) %>% 
   mutate(`Eigenvector Centrality` = round(`Eigenvector Centrality`, 2)) %>% 
   mutate(Complementarity = round(Complementarity, 2))
