@@ -1,7 +1,7 @@
 ---
 title: "AI Skills Complementarity"
 output: html_document
-date: "2025-01-07"
+date: "January 2025"
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
